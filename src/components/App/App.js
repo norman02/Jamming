@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
+import PlayList from '../PlayList/PlayList';
 
 class App extends React.Component {
   render() {
@@ -10,9 +11,10 @@ class App extends React.Component {
   <h1>Ja<span className="highlight">mmm</span>ing</h1>
   <div className="App">
     <SearchBar  />
-    <div class="App-playlist">
+    <div className="App-playlist">
       <SearchResults />
       {/* <!-- Add a Playlist component --> */}
+      <PlayList />
     </div>
   </div>
 </div>
