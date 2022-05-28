@@ -20,6 +20,23 @@ const Spotify = {
       window.location = spotifyUrl;
     }
   },
+  search(term) {
+    const endpoint = "https://api.spotify.com/v1/search?type=track&q=" + term;
+    return fetch(endpoint, {
+      headers: { Authorization: `Bearer ${accessToken}` },
+    }).then(response => response.json()).then(jsonResponse => {
+        if(!jsonResponse) return [];
+        return jsonResponse.tracks.items.map(track => {
+            return {
+                id: track.id,
+                name: track.name,
+                artist: track.artist[0],
+                album: track.album.name,
+                uri: track.uri
+            }
+        })
+    });
+  },
 };
 
 export default Spotify;
